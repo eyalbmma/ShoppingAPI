@@ -6,5 +6,5 @@ public class Category
     public string Name { get; set; }
 
     // Navigation
-    public List<Product> Products { get; set; } = new();
+    public ICollection<Product>? Products { get; set; }
 }

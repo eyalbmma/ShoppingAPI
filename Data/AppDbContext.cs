@@ -1,20 +1,21 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ShoppingAPI.Models;
-using System.Collections.Generic;
 
-namespace ShoppingAPI.Data;
-
-public class AppDbContext : DbContext
+namespace ShoppingAPI.Data
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options)
-        : base(options)
+    public class AppDbContext : DbContext
     {
-    }
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Seed(); // ⬅️ מוסיף את הנתונים הראשוניים
-    }
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+            : base(options)
+        {
+        }
 
-    public DbSet<Category> Categories { get; set; }
-    public DbSet<Product> Products { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Seed(); // טוען נתונים התחלתיים
+        }
+
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
+    }
 }
